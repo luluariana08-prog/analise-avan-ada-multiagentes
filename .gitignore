@@ -1,0 +1,18 @@
+# Ambiente e caches locais
+.venv/
+**/.venv/
+__pycache__/
+**/__pycache__/
+*.py[cod]
+
+# Dados, imagens e dashboard gerado (este repositório publica somente documentação)
+*.csv
+*.png
+*.json
+projeto-dashboard/site/
+projeto-dashboard/*.py
+projeto-dashboard/*.mjs
+graficos.py
+
+# Arquivo de origem da skill Validate com nome não padronizado
+.opencode/skills/VALIDATE-DATA/REVISOR DE ANALISE
