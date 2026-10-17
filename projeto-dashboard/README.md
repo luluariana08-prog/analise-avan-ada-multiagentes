@@ -46,7 +46,7 @@ Abra <http://localhost:8000/> no navegador. Para parar o servidor, pressione `Ct
 
 ## Publicação
 
-`projeto-dashboard/site/` é a pasta publicável em hospedagem estática. Gere `dados.json` antes de publicar; não é necessário servidor de aplicação, banco de dados ou dependência de terceiros no navegador. A publicação em si não faz parte desta entrega.
+`projeto-dashboard/site/` é a pasta publicável em hospedagem estática. O `dados.json` preparado está incluído junto com HTML, CSS, JavaScript e o módulo de gráficos. A configuração `render.yaml` publica essa pasta no Render sem servidor de aplicação, banco de dados ou dependências de build. No painel do Render, crie um Blueprint apontando para este repositório e aceite `analise-avan-ada-dashboard`; alternativamente, crie um Static Site com Publish Directory `projeto-dashboard/site`.
 
 ## Como interpretar
 

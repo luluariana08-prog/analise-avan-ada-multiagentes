@@ -1,6 +1,6 @@
 # Relatórios e fluxos de trabalho — análise multiagentes
 
-Repositório documental público do projeto de análise de vendas da papelaria. Contém relatórios Markdown, o fluxo de trabalho dos agentes e as skills de análise disponíveis.
+Repositório do projeto de análise de vendas da papelaria. Contém relatórios Markdown, o fluxo de trabalho dos agentes, as skills de análise disponíveis e os arquivos estáticos publicados pelo Render.
 
 ## Conteúdo
 
@@ -9,10 +9,15 @@ Repositório documental público do projeto de análise de vendas da papelaria. 
 - `projeto-dashboard/README.md`: comandos e definições usados na análise original.
 - `resumo.md` e `verificacao.md`: resultados e validações da análise anterior.
 - `.opencode/skills/`: skills de exploração, visualização e validação de dados.
+- `projeto-dashboard/site/`: arquivos estáticos do dashboard; `render.yaml` configura o deploy no Render.
 
 ## O que não foi publicado
 
-Este repositório foi preparado para expor documentação, não para reproduzir ou hospedar o dashboard. CSVs, site/HTML/CSS/JavaScript, imagens, saídas JSON, scripts de execução, caches e `.venv/` ficam fora do Git. Os relatórios preservam as conclusões e evidências escritas; os dados brutos não são distribuídos aqui.
+CSVs originais, imagens, scripts Python, testes, caches e `.venv/` ficam fora do Git. O `dados.json` incluído em `site/` é a cópia preparada necessária para o dashboard público; não contém credenciais. Os relatórios preservam as conclusões e evidências escritas.
+
+## Deploy no Render
+
+O `render.yaml` publica `projeto-dashboard/site/` como um site estático. No Render, crie um Blueprint usando este repositório e aceite o serviço `analise-avan-ada-dashboard`, ou crie um Static Site manualmente com **Publish Directory** `projeto-dashboard/site`. O deploy automático é executado quando novos commits chegam à branch `main`.
 
 ## Skills
 

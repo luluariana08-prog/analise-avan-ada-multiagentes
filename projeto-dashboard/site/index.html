@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#65000B">
+    <meta name="description" content="Visão interativa das vendas da papelaria no primeiro trimestre de 2026.">
+    <title>Visão de vendas · Papelaria</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="app.js"></script>
+  </head>
+  <body>
+    <main class="dashboard">
+      <header class="page-header">
+        <div>
+          <p class="eyebrow">PAINEL DE DESEMPENHO <span aria-hidden="true">/</span> 1º TRI · 2026</p>
+          <h1>Vendas da papelaria</h1>
+          <p class="intro">Uma leitura clara do que foi vendido, em que volume e onde.</p>
+        </div>
+        <div class="period-badge"><span class="period-dot" aria-hidden="true"></span> 01 jan — 31 mar 2026</div>
+      </header>
+
+      <section class="filters panel" aria-labelledby="filters-title">
+        <div class="filter-heading">
+          <div>
+            <p class="eyebrow">EXPLORE A BASE</p>
+            <h2 id="filters-title">Filtrar resultados</h2>
+          </div>
+          <button id="clear-filters" class="clear-button" type="button">Limpar filtros</button>
+        </div>
+        <div class="filter-controls">
+          <label for="city-filter">Cidade
+            <select id="city-filter" name="cidade">
+              <option value="">Todas as cidades</option>
+            </select>
+          </label>
+          <label for="category-filter">Categoria
+            <select id="category-filter" name="categoria">
+              <option value="">Todas as categorias</option>
+            </select>
+          </label>
+        </div>
+      </section>
+
+      <section class="kpi-grid" aria-label="Indicadores de vendas">
+        <article class="kpi-card kpi-primary">
+          <p class="kpi-label">Valor vendido bruto</p>
+          <p class="kpi-value" id="gross-total" aria-live="polite">—</p>
+          <p class="kpi-note">Soma do valor das vendas</p>
+        </article>
+        <article class="kpi-card">
+          <p class="kpi-label">Vendas</p>
+          <p class="kpi-value" id="sale-count" aria-live="polite">—</p>
+          <p class="kpi-note">Contagem de IDs de venda</p>
+        </article>
+        <article class="kpi-card">
+          <p class="kpi-label">Ticket médio</p>
+          <p class="kpi-value" id="average-ticket" aria-live="polite">—</p>
+          <p class="kpi-note">Valor bruto ÷ número de vendas</p>
+        </article>
+      </section>
+
+      <section class="charts-grid" aria-label="Gráficos de valor vendido">
+        <article class="panel chart-panel">
+          <div class="section-heading">
+            <div><p class="eyebrow">COMPOSIÇÃO</p><h2>Valor por categoria</h2></div>
+            <span class="chart-unit">BRL</span>
+          </div>
+          <ul class="chart-legend" aria-label="Legenda do gráfico por categoria">
+            <li><span class="legend-swatch legend-swatch-above" aria-hidden="true"></span>Acima da média</li>
+            <li><span class="legend-swatch legend-swatch-at-below" aria-hidden="true"></span>Na média ou abaixo</li>
+          </ul>
+          <p class="chart-legend-note">Valores exatamente iguais à média também ficam em rosa.</p>
+          <div id="category-chart" class="chart-area" aria-live="polite"></div>
+        </article>
+        <article class="panel chart-panel">
+          <div class="section-heading">
+            <div><p class="eyebrow">DISTRIBUIÇÃO</p><h2>Valor por cidade</h2></div>
+            <span class="chart-unit">BRL</span>
+          </div>
+          <ul class="chart-legend" aria-label="Legenda do gráfico por cidade">
+            <li><span class="legend-swatch legend-swatch-above" aria-hidden="true"></span>Acima da média</li>
+            <li><span class="legend-swatch legend-swatch-at-below" aria-hidden="true"></span>Na média ou abaixo</li>
+          </ul>
+          <p class="chart-legend-note">Valores exatamente iguais à média também ficam em rosa.</p>
+          <div id="city-chart" class="chart-area" aria-live="polite"></div>
+        </article>
+      </section>
+
+      <section class="panel table-panel" aria-labelledby="table-title">
+        <div class="section-heading table-heading">
+          <div><p class="eyebrow">DETALHAMENTO</p><h2 id="table-title">Vendas registradas</h2></div>
+          <p id="row-count" class="row-count" aria-live="polite"></p>
+        </div>
+        <p id="empty-state" class="empty-state" role="status" hidden>Nenhuma venda corresponde aos filtros escolhidos. Experimente outra combinação ou limpe os filtros.</p>
+        <div class="table-scroll">
+          <table>
+            <caption class="visually-hidden">Vendas após aplicação dos filtros selecionados</caption>
+            <thead><tr>
+              <th scope="col">ID da venda</th><th scope="col">Data</th><th scope="col">Cidade</th>
+              <th scope="col">Categoria</th><th scope="col">Produto</th><th scope="col">Unidades</th>
+              <th scope="col">Preço unitário</th><th scope="col">Pagamento</th><th scope="col">Valor vendido</th>
+            </tr></thead>
+            <tbody id="sales-table"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <footer class="page-footer">
+        <p><strong>Como ler:</strong> cada linha representa uma venda. O valor vendido é bruto — não desconta custos ou despesas e não representa lucro. “Unidades” não é o mesmo que número de vendas.</p>
+        <p class="source-note">Fonte: base de vendas da papelaria · jan–mar 2026</p>
+      </footer>
+      <p id="load-error" class="load-error" role="alert" hidden>Não foi possível carregar os dados. Confira se o site está aberto por HTTP e se <code>dados.json</code> está publicado.</p>
+    </main>
+  </body>
+</html>

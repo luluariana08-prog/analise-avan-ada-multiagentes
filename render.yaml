@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: analise-avan-ada-dashboard
+    runtime: static
+    buildCommand: 'echo "Static dashboard: no build step required"'
+    staticPublishPath: ./projeto-dashboard/site

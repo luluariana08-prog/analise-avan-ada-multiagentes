@@ -5,11 +5,17 @@ __pycache__/
 **/__pycache__/
 *.py[cod]
 
-# Dados, imagens e dashboard gerado (este repositório publica somente documentação)
+# Dados brutos e imagens não são publicados
 *.csv
 *.png
 *.json
-projeto-dashboard/site/
+# Publica apenas os arquivos estáticos necessários para o dashboard Render
+projeto-dashboard/site/*
+!projeto-dashboard/site/*.html
+!projeto-dashboard/site/*.css
+!projeto-dashboard/site/*.js
+!projeto-dashboard/site/*.mjs
+!projeto-dashboard/site/dados.json
 projeto-dashboard/*.py
 projeto-dashboard/*.mjs
 graficos.py
